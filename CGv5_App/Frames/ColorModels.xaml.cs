@@ -132,7 +132,9 @@ namespace CGv5_App.Frames
         {
             this.GraynessScaleSlider.Value = 100;
             this.ShadeAccuracyScaleSlider.Value = 0;
-            this.HslImage.Source = new WriteableBitmap(OldHslBitmap);
+
+            if (OldHslBitmap != null)
+                this.HslImage.Source = new WriteableBitmap(OldHslBitmap);
         }
 
         private void HslImage_MouseDown(object sender, MouseEventArgs e)

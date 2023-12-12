@@ -13,6 +13,9 @@ namespace CGv5_App.Frames
     /// </summary>
     public partial class FigureMoving : Page
     {
+        public bool IsRunning { get { return isRunning; } }
+        public Canvas DrawingCanvas { get { return drawingCanvas; } }
+
         private const int ARROW_SIZE = 5;
         private const double CELL_THICKNESS = 0.5;
         private const double CELL_SIZE = 20;
@@ -39,7 +42,24 @@ namespace CGv5_App.Frames
 
         private void DockPanel_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            PaintCanvas(cellSize, cellThickness);
+            if (motionRectangle != null)
+            {
+                var oldLeftPositionMR =
+                     (Canvas.GetLeft(motionRectangle) - numCols / 2 * cellSize) / cellSize;
+                var oldTopPositionMR =
+                    (numRows / 2 * cellSize - Canvas.GetTop(motionRectangle)) / cellSize;
+
+                PaintCanvas(cellSize, cellThickness);
+
+                Canvas.SetLeft(motionRectangle, (oldLeftPositionMR + numCols / 2) * cellSize);
+                Canvas.SetTop(motionRectangle, (numRows / 2 - oldTopPositionMR) * cellSize);
+                drawingCanvas.Children.Add(motionRectangle);
+                DrawRectangleLabels(motionRectangle, drawingCanvas);
+            }
+            else
+            {
+                PaintCanvas(cellSize, cellThickness);
+            }
         }
 
         private async void Run(object sender, RoutedEventArgs e)
@@ -55,15 +75,6 @@ namespace CGv5_App.Frames
                 return;
             }
 
-            isRunning = true;
-
-            cellSize = CELL_SIZE;
-            cellThickness = CELL_THICKNESS;
-
-            PaintCanvas(cellSize, cellThickness);
-            PaintRectangle(x1, y1, x2, y2, cellSize);
-            DrawRectangleLabels(motionRectangle, drawingCanvas);
-
             double rotationAngle, verticalMovingStep, timeInSecondsStep;
             if (!double.TryParse(this.RotateStepTextBox.Text, out rotationAngle) ||
                 !double.TryParse(this.VerticalMovingStepTextBox.Text, out verticalMovingStep) ||
@@ -73,11 +84,29 @@ namespace CGv5_App.Frames
                 return;
             }
 
+            if (rotationAngle <= -180 || rotationAngle >= 0)
+            {
+                MessageBox.Show("Write rotation angles between (-180; 00)");
+                return;
+            }
+
+            isRunning = true;
+
+            cellSize = CELL_SIZE;
+            cellThickness = CELL_THICKNESS;
+
+            PaintCanvas(cellSize, cellThickness);
+            PaintRectangle(x1, y1, x2, y2, cellSize);
+            DrawRectangleLabels(motionRectangle, drawingCanvas);
+
             while (isRunning)
             {
                 await Task.Delay((int)(timeInSecondsStep * 1000));
 
                 var rectangleCenter = GetRectangleCenter(motionRectangle);
+
+                if (motionRectangle == null)
+                    return;
 
                 var motionRectangleMatrix =
                     (motionRectangle.RenderTransform as MatrixTransform).Matrix;
@@ -115,11 +144,17 @@ namespace CGv5_App.Frames
             isRunning = false;
         }
 
-        private void Clear(object sender, RoutedEventArgs e)
+        private async void Clear(object sender, RoutedEventArgs e)
         {
             isRunning = false;
 
-            PaintCanvas(CELL_SIZE, CELL_THICKNESS);
+            motionRectangle = null;
+
+            cellSize = CELL_SIZE;
+            cellThickness = CELL_THICKNESS;
+
+            PaintCanvas(cellSize, cellThickness);
+
         }
 
         private void PaintCanvas(double cellSize, double cellThickness)
@@ -367,6 +402,9 @@ namespace CGv5_App.Frames
 
         private Point GetRectangleCenter(Rectangle rectangle)
         {
+            if (rectangle == null)
+                return new Point(0, 0);
+
             var transofrmedRectangleBounds = rectangle.RenderTransform.TransformBounds(new Rect(rectangle.RenderSize));
 
             Point center = new Point(transofrmedRectangleBounds.Left + transofrmedRectangleBounds.Width / 2,

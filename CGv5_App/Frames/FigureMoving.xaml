@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CGv5_App.Frames" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Figure Moving">
+      Title="CGv5 | Figure Moving">
 
     <Page.Resources>
         <!-- Стиль для кнопок -->
@@ -89,8 +89,8 @@
 
                     <!-- TextBoxes for rotate step, vertical moving step, and time step -->
                     <DockPanel Grid.Row="3" Margin="0,10" LastChildFill="True">
-                        <TextBlock Text="Rotate Step (deg):" MinWidth="130" VerticalAlignment="Center" />
-                        <TextBox Name="RotateStepTextBox" Text="10"/>
+                        <TextBlock Text="Rotate Step (-180; 0)" MinWidth="130" VerticalAlignment="Center" />
+                        <TextBox Name="RotateStepTextBox" Text="-10"/>
                     </DockPanel>
                     <DockPanel Grid.Row="4" Margin="0,0,0,10" LastChildFill="True">
                         <TextBlock Text="Vertical Moving Step:" MinWidth="130" VerticalAlignment="Center" />

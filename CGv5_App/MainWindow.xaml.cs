@@ -1,20 +1,11 @@
 ﻿using CGv5_App.Frames;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CGv5_App
 {
@@ -93,6 +84,54 @@ namespace CGv5_App
                     }
                 }
             }
+            else if (MainFrame.Content is FigureMoving)
+            {
+                var figureMovingPage = MainFrame.Content as FigureMoving;
+
+                if (!figureMovingPage.IsRunning)
+                {
+                    var drawingCanvas = figureMovingPage.DrawingCanvas;
+
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp";
+                    if (saveFileDialog.ShowDialog() == true)
+                    {
+                        string savePath = saveFileDialog.FileName;
+
+                        var renderTargetBitmap = new RenderTargetBitmap(
+                            (int)drawingCanvas.ActualWidth,
+                            (int)drawingCanvas.ActualHeight,
+                            96, // DPI X
+                            96, // DPI Y
+                            PixelFormats.Pbgra32);
+
+                        renderTargetBitmap.Render(drawingCanvas);
+
+                        var imageToSave = new FormatConvertedBitmap(renderTargetBitmap, PixelFormats.Pbgra32, null, 0);
+
+                        if (imageToSave is BitmapSource bitmapSource)
+                        {
+                            var encoder = new PngBitmapEncoder();
+                            encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+
+                            using (var stream = new FileStream(savePath, FileMode.Create))
+                            {
+                                encoder.Save(stream);
+                            }
+
+                            MessageBox.Show("Image saved successfully.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No image source to save.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please, firstly stop figure moving!");
+                }
+            }
         }
 
         private void FileOpen_MenuItem_Click(object sender, RoutedEventArgs e)
@@ -123,6 +162,15 @@ namespace CGv5_App
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("You can not open file for this page!");
+            }
+        }
+
+        private void NavigateToMainMenu_MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.SetPage(new MainMenu());
         }
     }
 }

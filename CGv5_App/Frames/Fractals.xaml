@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CGv5_App.Frames" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Fractals">
+      Title="CGv5 | Generate Fractals">
 
     <Page.Resources>
         <!-- Стиль для кнопок -->
