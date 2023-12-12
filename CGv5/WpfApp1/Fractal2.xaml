@@ -1,0 +1,94 @@
+﻿<Window x:Class="WpfApp1.Fractal2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CGv5 | Fractal Generator | Pythagoras Tree" SizeToContent="WidthAndHeight" Background="#FFFAFAFA">
+    <Window.Resources>
+        <!-- Стиль для кнопок -->
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="16px" />
+            <Setter Property="Background" Value="#2196F3" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="#1565C0" />
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1976D2" />
+                    <Setter Property="BorderBrush" Value="#115293" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <!-- Меню -->
+        <Border DockPanel.Dock="Top" BorderBrush="#FFACACAC" BorderThickness="0, 0, 0, 1.5">
+            <Menu Background="#FF323232" Foreground="#FFE6E6E6" >
+                <MenuItem Header="File">
+                    <MenuItem Header="Save" Background="#FF323232" Foreground="#FFE6E6E6"/>
+                </MenuItem>
+                <MenuItem Header="Main Menu" />
+                <MenuItem Header="Help"/>
+            </Menu>
+        </Border>
+
+        <!-- Головний контент -->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Ліва частина для фрактала -->
+            <Grid Grid.Column="0" Margin="0,0,20,0">
+                <Border BorderBrush="#FFACACAC" BorderThickness="1.5">
+                    <Image Source="/iteration11.gif" Stretch="Uniform"/>
+                </Border>
+            </Grid>
+
+            <!-- Права частина для елементів управління -->
+            <Grid Grid.Column="1" MinWidth="350">
+                <Grid VerticalAlignment="Center" Margin="0,0,0,50">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontSize="20" FontWeight="Bold" Margin="0,0,0,6">Fractal Options</TextBlock>
+
+                    <!-- Вибір фрактала з лейблом -->
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+                        <TextBlock Text="Select Fractal: " VerticalAlignment="Center" FontSize="16" />
+                        <ComboBox Name="FractalType" Margin="10,0,0,0" MinWidth="150" FontSize="16" >
+                            <ComboBoxItem Content="Mandelbrot"  />
+                            <ComboBoxItem Content="Pythagoras Tree" IsSelected="True"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Вибір кольорової схеми -->
+                    <DockPanel Grid.Row="2" Margin="0,0,0,10">
+                        <Border BorderBrush="#FFACACAC" BorderThickness="1.5" Margin="0,0,10,0" DockPanel.Dock="Left">
+                            <Rectangle Name="ColorPreview" Width="20" Height="20" Fill="#FF008400"/>
+                        </Border>
+                        <Button Content="Select Color" Style="{StaticResource CustomButtonStyle}" DockPanel.Dock="Right" Background="#FF008400"/>
+                    </DockPanel>
+
+                    <!-- Кнопка для генерації фрактала -->
+                    <Button Content="Generate Fractal" Style="{StaticResource CustomButtonStyle}" Grid.Row="3" Height="35" Background="#FF008400"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>

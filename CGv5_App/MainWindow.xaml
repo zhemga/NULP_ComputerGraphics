@@ -1,0 +1,26 @@
+﻿<Window x:Class="CGv5_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CGv5_App"
+        mc:Ignorable="d"
+        Title="CGv5" MinHeight="650" MinWidth="800">
+    <DockPanel>
+        <!-- Меню -->
+        <Border DockPanel.Dock="Top" BorderBrush="#FFACACAC" BorderThickness="0, 0, 0, 1.5">
+            <Menu Background="#FF323232" Foreground="#FFE6E6E6" >
+                <MenuItem Header="File">
+                    <MenuItem Header="Open" Foreground="#FF323232" Click="FileOpen_MenuItem_Click"/>
+                    <MenuItem Header="Save" Foreground="#FF323232" Click="FileSave_MenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="Main Menu" />
+                <MenuItem Header="Help" />
+            </Menu>
+        </Border>
+
+        <Frame x:Name="MainFrame" Source="Frames/MainMenu.xaml">
+            
+        </Frame>
+    </DockPanel>
+</Window>

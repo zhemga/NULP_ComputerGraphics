@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfApp1.HelpFractal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Help | Fractal" Height="300" Width="300">
+
+    <Window.Resources>
+        <!-- Стиль для кнопок -->
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="16px" />
+            <Setter Property="Background" Value="#FF4A1583" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="#1565C0" />
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1976D2" />
+                    <Setter Property="BorderBrush" Value="#115293" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFC8C8DC">
+        <TextBlock Margin="10,16,11,60" TextWrapping="Wrap" Text="1. Creating the Mandelbrot Fractal f(z)=z^3+c:&#x0a;Ability to generate different images, namely for:&#x0a;- different color schemes,&#x0a;- different scaling&#x0a;To construct, select the 'Mandelbrot Fractal' from the drop-down list,&#x0a;choose a color scheme by pressing the button 'Select color' and set scale using slider below, then press button 'Generate Fractal'.&#x0a;&#x0a;2. Creting the Pythagoras Tree:&#x0a;To construct, select the 'Pythagoras Tree' from the drop-down list,&#x0a;Then press button 'Generate Fractal'." FontSize="10">
+            </TextBlock>
+        <Button Content="Close" Style="{StaticResource CustomButtonStyle}" Margin="73,239,73,21" Background="#FF323232"/>
+    </Grid>
+</Window>
