@@ -52,7 +52,7 @@
                 <Button Height="50" Margin="5" Content="Generate Fractals" Style="{StaticResource CustomButtonStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0" Background="#1565C0" BorderBrush="#1565C0" Click="NavigateToFractals_Button_Click"/>
                 <Button Height="50" Margin="5" Content="Color Models" Style="{StaticResource CustomButtonStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Background="#1565C0" BorderBrush="#1565C0" Click="NavigateToColorModels_Button_Click"/>
                 <Button Height="50" Margin="5" Content="Figure Moving" Style="{StaticResource CustomButtonStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Background="#1565C0" BorderBrush="#1565C0" Click="NavigateToFigureMoving_Button_Click"/>
-                <Button Height="50" Margin="5" Content="Lab Materials" Style="{StaticResource CustomButtonStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Background="#FFF0B316" BorderBrush="#FFC09115" Click="NavigateToLabMaterials_Button_Click"/>
+                <Button Height="50" Margin="5" Content="Help" Style="{StaticResource CustomButtonStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Background="#FFF0B316" BorderBrush="#FFC09115" Click="NavigateToLabMaterials_Button_Click"/>
             </Grid>
         </StackPanel>
 

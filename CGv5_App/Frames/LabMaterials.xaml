@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CGv5_App.Frames"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CGv5 | LabMaterials">
+      Title="CGv5 | Help">
 
     <ScrollViewer Background="#FFECF1FF" Padding="50, 10, 50, 10">
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
