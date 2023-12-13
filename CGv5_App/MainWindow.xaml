@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CGv5_App"
         mc:Ignorable="d"
+        
         Title="{Binding ElementName=MainFrame, Path=Content.Title}"
         MinHeight="650" MinWidth="800">
+    
     <DockPanel>
         <!-- Меню -->
         <Border DockPanel.Dock="Top" BorderBrush="#FFACACAC" BorderThickness="0, 0, 0, 1.5">
@@ -16,12 +18,13 @@
                     <MenuItem Header="Save" Foreground="#FF323232" Click="FileSave_MenuItem_Click"/>
                 </MenuItem>
                 <MenuItem Header="Main Menu" Click="NavigateToMainMenu_MenuItem_Click" />
-                <MenuItem Header="Help" />
+                <MenuItem Header="Help" Click="MenuItem_Click" />
             </Menu>
         </Border>
 
+
         <Frame x:Name="MainFrame" Source="Frames/MainMenu.xaml">
-            
+
         </Frame>
     </DockPanel>
 </Window>

@@ -1,0 +1,94 @@
+﻿<Page x:Class="CGv5_App.Frames.HelpPages.FigureMovingHelp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CGv5_App.Frames.HelpPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CGv5 | Figure Moving | Help">
+
+    <Page.Resources>
+        <!-- Стиль для кнопок -->
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="16px" />
+            <Setter Property="Background" Value="#2196F3" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="#1565C0" />
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1976D2" />
+                    <Setter Property="BorderBrush" Value="#115293" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Page.Resources>
+
+    <ScrollViewer Background="#FFECF1FF" Padding="50, 10, 50, 10">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <!-- Title -->
+            <TextBlock Margin="0, 20, 0, 10" HorizontalAlignment="Center" 
+                TextWrapping="Wrap" Text="It's a Help Materials for Fractals!" FontSize="24" FontWeight="Bold"/>
+
+            <TextBlock Margin="0, 10, 0, 10" HorizontalAlignment="Center" 
+    TextWrapping="Wrap" Foreground="#2196F3" Text="Please, read carefully to understand program functionality!" FontSize="24" FontWeight="Bold"/>
+
+            <!-- Section 1: Figure Moving Options -->
+            <StackPanel Margin="0, 10">
+                <TextBlock Text="1. Figure Moving Options:" FontWeight="Bold" FontSize="20" Margin="0, 0, 0, 10"/>
+
+                <!-- Subsection 1.1: TextBoxes for entering coordinates -->
+                <TextBlock FontSize="15" Margin="0,0,0,0" FontStyle="Italic">
+                        1.1. Enter the coordinates of the vertices of the regular quadrilateral:
+                    
+                </TextBlock>
+                        <StackPanel Margin="0, 5, 0, 25">
+                    <TextBlock Margin="30, 0, 0, 0" FontSize="16" >- x1, y1: (10, 5)</TextBlock>
+                    <TextBlock Margin="30, 0, 0, 0" FontSize="16" > - x2, y2: (1, 1)</TextBlock> 
+                        </StackPanel>
+
+                <!-- Subsection 1.2: TextBoxes for rotate step, vertical moving step, and time step -->
+                <TextBlock FontSize="15" Margin="0,0,0,0"  FontStyle="Italic">
+                        1.2. Adjust the settings for figure movement:
+                </TextBlock>
+                <StackPanel Margin="0, 5, 0, 10">
+                    <TextBlock Margin="30, 0, 0, 0" FontSize="16" >- Rotate Step: (-180, 0) degrees, Step: -10 degrees</TextBlock>
+                    <TextBlock Margin="30, 0, 0, 0" FontSize="16" >- Vertical Moving Step: Step: 1 unit</TextBlock>
+                    <TextBlock Margin="30, 0, 0, 0" FontSize="16" >- Time Step (s): Step: 1 second</TextBlock>
+                </StackPanel>
+
+                <!-- Subsection 1.3: Button to apply the settings -->
+                <Button Content="1.3. Apply Settings and Run" Style="{StaticResource CustomButtonStyle}" Height="40" IsEnabled="False" Margin="0,35,0,15"/>
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,0,0,15" FontStyle="Italic" FontSize="15">
+                        Once you've entered the coordinates and adjusted the settings, click this button to apply the settings and start the figure movement animation.
+                </TextBlock>
+
+                <!-- Subsection 1.4: Button to stop the movement -->
+                <Button Content="1.4. Stop Movement" Style="{StaticResource CustomButtonStyle}" Height="40" IsEnabled="False" Margin="0,35,0,15" Background="#FFA3163A"/>
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,0,0,15" FontStyle="Italic" FontSize="15">
+                        Click this button to stop the ongoing figure movement animation.
+                </TextBlock>
+
+                <!-- Subsection 1.5: Button to clear the canvas -->
+                <Button Content="1.5. Clear Canvas" Style="{StaticResource CustomButtonStyle}" Height="40" IsEnabled="False" Margin="0,35,0,15" Background="#FF59BA47"/>
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,0,0,40" FontStyle="Italic" FontSize="15">
+                        Click this button to clear the canvas and reset the figure to its initial position.
+                </TextBlock>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

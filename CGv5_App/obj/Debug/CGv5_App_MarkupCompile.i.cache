@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\admin\source\repos\CG\CGv5_App\App.xaml
-5329266396
+9196931808
 
-15818483114
-20-1344853000
-Frames\ColorModels.xaml;Frames\FigureMoving.xaml;Frames\Fractals.xaml;Frames\MainMenu.xaml;MainWindow.xaml;
+19-1850168058
+26931966252
+Frames\ColorModels.xaml;Frames\FigureMoving.xaml;Frames\Fractals.xaml;Frames\HelpPages\ColorModelsHelp.xaml;Frames\HelpPages\FigureMovingHelp.xaml;Frames\HelpPages\FractalsHelp.xaml;Frames\LabMaterials.xaml;Frames\MainMenu.xaml;MainWindow.xaml;
 
 True
 

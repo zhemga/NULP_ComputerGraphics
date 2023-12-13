@@ -1,0 +1,90 @@
+﻿<Page x:Class="CGv5_App.Frames.HelpPages.FractalsHelp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CGv5_App.Frames.HelpPages" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CGv5 | Generate Fractals | Help">
+
+    <Page.Resources>
+        <!-- Стиль для кнопок -->
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="16px" />
+            <Setter Property="Background" Value="#2196F3" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="#1565C0" />
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1976D2" />
+                    <Setter Property="BorderBrush" Value="#115293" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Page.Resources>
+
+    <ScrollViewer Background="#FFECF1FF" Padding="50, 10, 50, 10">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <!-- Title -->
+            <TextBlock Margin="0, 20, 0, 10" HorizontalAlignment="Center" 
+                   TextWrapping="Wrap" Text="It's a Help Materials for Fractals!" FontSize="24" FontWeight="Bold"/>
+            
+            <TextBlock Margin="0, 10, 0, 10" HorizontalAlignment="Center" 
+       TextWrapping="Wrap" Foreground="#2196F3" Text="Please, read carefully to understand program functionality!" FontSize="24" FontWeight="Bold"/>
+
+            <!-- Section 1: Fractal Options -->
+            <StackPanel Margin="0, 10">
+                <TextBlock Text="1. Fractal Options:" FontWeight="Bold" FontSize="20" Margin="0, 0, 0, 10"/>
+
+                <!-- Subsection 1.1: Select Fractal -->
+                <DockPanel Margin="0,0,0,15">
+                    <TextBlock Text="1.1. Select Fractal: " VerticalAlignment="Center" FontSize="18"/>
+                    <ComboBox Name="FractalTypeCB" Margin="10,0,0,0" FontSize="18" IsEnabled="False">
+                        <ComboBoxItem Name="MandelbrotCBI" Content="Mandelbrot" IsSelected="True"/>
+                        <ComboBoxItem Name="PythagorasCBI" Content="Pythagoras Tree" />
+                    </ComboBox>
+                </DockPanel>
+                <TextBlock TextWrapping="Wrap" Margin="0,0,0,10" FontSize="15" FontStyle="Italic">
+                        Choose the type of fractal you want to generate. The Mandelbrot fractal is a classic and versatile option, while the Pythagoras Tree offers a unique and visually appealing structure.
+                </TextBlock>
+
+                <!-- Subsection 1.2: Select Color Scheme -->
+                <StackPanel Name="ColorScheme" IsEnabled="False" Margin="0,0,0,15">
+                    <TextBlock Text="1.2. Select Color Scheme: " VerticalAlignment="Center" FontWeight="Bold" FontSize="18" DockPanel.Dock="Left" Margin="0,10,0,10"/>
+                    <DockPanel Margin="0,0,0,10">
+                        <TextBlock Text="Color 1: " VerticalAlignment="Center" FontSize="18" DockPanel.Dock="Left" Margin="0,0,5,0"/>
+                        <xctk:ColorPicker Name="ColorPicker1" SelectedColor="Black" IsEnabled="False"/>
+                    </DockPanel>
+                    <!-- ... (repeating for Color Pickers 2-5) ... -->
+                    <DockPanel IsEnabled="False" Margin="0,0,0,0">
+                        <TextBlock Text="Scale: " FontWeight="Bold" VerticalAlignment="Center" FontSize="18" DockPanel.Dock="Left"/>
+                        <Slider Name="ScaleSlider" Minimum="0.000001" Maximum="0.01" Value="0.007" DockPanel.Dock="Right" Margin="2,3,0,0"/>
+                    </DockPanel>
+                </StackPanel>
+                <TextBlock TextWrapping="Wrap" Margin="0,0,0,30"  FontSize="15" FontStyle="Italic">
+                        1.2.1 Customize the visual appearance of your fractal by selecting a color scheme. Adjust the colors and scale for a personalized and visually stunning result.
+                </TextBlock>
+
+                <!-- Subsection 1.3: Generate Fractal Button -->
+                <Button Content="1.3. Generate Fractal" Style="{StaticResource CustomButtonStyle}" Height="40" IsEnabled="False" Margin="0,0,0,15"/>
+                <TextBlock TextWrapping="Wrap" Margin="0,0,0,40"  FontSize="15" FontStyle="Italic">
+                        1.2.2 Once you've configured your fractal options, click this button to generate the fractal based on your selected parameters.
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

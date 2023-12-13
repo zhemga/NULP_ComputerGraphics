@@ -1,0 +1,72 @@
+﻿<Page x:Class="CGv5_App.Frames.LabMaterials"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CGv5_App.Frames"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CGv5 | LabMaterials">
+
+    <ScrollViewer Background="#FFECF1FF" Padding="50, 10, 50, 10">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <!-- Title -->
+            <TextBlock Margin="0, 20, 0, 10" HorizontalAlignment="Center" 
+                       TextWrapping="Wrap" Text="It's a CGv5 Help Materials" FontSize="24" FontWeight="Bold"/>
+            <TextBlock Margin="0, 10, 0, 10" HorizontalAlignment="Center" 
+           TextWrapping="Wrap" Foreground="#2196F3" Text="Please, read carefully to understand program functionality!" FontSize="24" FontWeight="Bold"/>
+
+            <!-- Section 1: Build Fractal Images -->
+            <StackPanel Margin="0, 10">
+                <TextBlock Text="1. Build Fractal Images:" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
+
+                <!-- Subsection 1.1 -->
+                <TextBlock Text="1.1 Mandelbrot Fractal:" FontWeight="Bold" FontSize="16" Margin="15, 0, 0, 5"/>
+                <TextBlock FontSize="15" FontStyle="Italic" Text="Explore the fascinating world of Mandelbrot fractals with CGv5. Customize your fractal images by adjusting:" TextWrapping="Wrap" Margin="30, 0, 0, 5"/>
+                <TextBlock FontSize="15" FontStyle="Italic" Text="- Color Schemes: Experiment with different color schemes to bring your fractals to life." TextWrapping="Wrap" Margin="45, 0, 0, 3"/>
+                <TextBlock FontSize="15" FontStyle="Italic" Text="- Scaling: Zoom in or out to discover intricate details or capture the bigger picture." TextWrapping="Wrap" Margin="45, 0, 0, 5"/>
+
+                <!-- Subsection 1.2 -->
+                <TextBlock Text="1.2 Tree of Pythagoras:" FontWeight="Bold" FontSize="16" Margin="15, 0, 0, 5"/>
+                <TextBlock FontSize="15" FontStyle="Italic" Text="Unleash your creativity with the Tree of Pythagoras fractal. Generate unique and beautiful tree-like structures using CGv5." TextWrapping="Wrap" Margin="30, 0, 0, 10"/>
+            </StackPanel>
+
+            <!-- Separator -->
+            <Separator Margin="0, 20"/>
+
+            <!-- Section 2: Color Models -->
+            <StackPanel Margin="0, 10">
+                <TextBlock Text="2. Color Models: CMYK and HSL:" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
+                <TextBlock FontSize="15" FontStyle="Italic" Text="Dive into the realm of color with CGv5's Color Models feature. Explore the CMYK and HSL color models and get hands-on experience with manipulating colors. Try changing the lightness to gray for a grayscale effect." TextWrapping="Wrap" Margin="15, 0, 0, 10"/>
+            </StackPanel>
+
+            <!-- Separator -->
+            <Separator Margin="0, 20"/>
+
+            <!-- Section 3: Figure Movement -->
+            <StackPanel Margin="0, 10">
+                <TextBlock Text="3. Figure Movement:" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
+                <TextBlock FontSize="15" FontStyle="Italic" Text="Take geometric shapes to the next level with CGv5's Figure Movement feature. Move a regular quadrilateral based on a counterclockwise rotation about its center. Add a touch of vertical movement for a dynamic and engaging experience." TextWrapping="Wrap" Margin="15, 0, 0, 10"/>
+            </StackPanel>
+
+            <!-- Separator -->
+            <Separator Margin="0, 20"/>
+
+            <!-- Getting Started -->
+            <StackPanel Margin="0, 10">
+                <TextBlock Text="Getting Started:" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
+                <TextBlock FontSize="15" FontStyle="Italic" Text="- Simply click on the corresponding buttons to access each feature." TextWrapping="Wrap" Margin="15, 0, 0, 3"/>
+                <TextBlock FontSize="15" FontStyle="Italic" Text="- Feel free to experiment and press any button to continue your creative journey." TextWrapping="Wrap" Margin="15, 0, 0, 10"/>
+            </StackPanel>
+
+            <!-- Separator -->
+            <Separator Margin="0, 20"/>
+
+            <!-- Note -->
+            <StackPanel Margin="0, 10">
+                <TextBlock Text="Note:" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
+                <TextBlock FontSize="15" FontStyle="Italic" Text="- If you have any questions or need assistance, check out the 'Help' in menu section for additional resources." TextWrapping="Wrap" Margin="15, 0, 0, 40"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

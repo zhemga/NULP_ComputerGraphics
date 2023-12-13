@@ -41,3 +41,17 @@ C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\CGv5_App.csproj.CopyComplete
 C:\Users\admin\source\repos\CG\CGv5_App\bin\Debug\ColorMine.dll
 C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\FigureMoving.g.cs
 C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\FigureMoving.baml
+C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\LabMaterials.g.cs
+C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\LabMaterials.baml
+C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\HelpPages\ColorModelsHelp.g.cs
+C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\HelpPages\FigureMovingHelp.g.cs
+C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\HelpPages\FractalsHelp.g.cs
+C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\HelpPages\ColorModelsHelp.baml
+C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\HelpPages\FigureMovingHelp.baml
+C:\Users\admin\source\repos\CG\CGv5_App\obj\Debug\Frames\HelpPages\FractalsHelp.baml
+C:\Users\admin\source\repos\CG\CGv5_App\bin\Debug\ControlzEx.dll
+C:\Users\admin\source\repos\CG\CGv5_App\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\admin\source\repos\CG\CGv5_App\bin\Debug\ControlzEx.pdb
+C:\Users\admin\source\repos\CG\CGv5_App\bin\Debug\ControlzEx.xml
+C:\Users\admin\source\repos\CG\CGv5_App\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\admin\source\repos\CG\CGv5_App\bin\Debug\Microsoft.Xaml.Behaviors.xml

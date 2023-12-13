@@ -1,4 +1,5 @@
 ﻿using CGv5_App.Frames;
+using CGv5_App.Frames.HelpPages;
 using Microsoft.Win32;
 using System;
 using System.IO;
@@ -132,9 +133,13 @@ namespace CGv5_App
                     MessageBox.Show("Please, firstly stop figure moving!");
                 }
             }
+            else
+            {
+                MessageBox.Show("You can not save file for this page!");
+            }
         }
 
-        private void FileOpen_MenuItem_Click(object sender, RoutedEventArgs e)
+    private void FileOpen_MenuItem_Click(object sender, RoutedEventArgs e)
         {
             if (MainFrame.Content is ColorModels)
             {
@@ -171,6 +176,27 @@ namespace CGv5_App
         private void NavigateToMainMenu_MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.SetPage(new MainMenu());
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.Content is MainMenu)
+            {
+                this.SetPage(new LabMaterials());
+            }
+            else if (MainFrame.Content is Fractals) 
+            {
+                this.SetPage(new FractalsHelp());
+            }
+            else if (MainFrame.Content is ColorModels)
+            {
+                this.SetPage(new ColorModelsHelp());
+            }
+            else if (MainFrame.Content is FigureMoving)
+            {
+                this.SetPage(new FigureMovingHelp());
+            }
+
         }
     }
 }

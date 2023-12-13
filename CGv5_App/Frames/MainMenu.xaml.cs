@@ -39,5 +39,10 @@ namespace CGv5_App.Frames
         {
             (App.Current.MainWindow as MainWindow).SetPage(new FigureMoving());
         }
+
+        private void NavigateToLabMaterials_Button_Click(object sender, RoutedEventArgs e)
+        {
+            (App.Current.MainWindow as MainWindow).SetPage(new LabMaterials());
+        }
     }
 }
