@@ -1,0 +1,102 @@
+@startuml
+left to right direction
+actor "User" as u
+rectangle Program {
+  usecase "Go to Generate Fractals Page" as mm1
+  usecase "Go to Color Models Page" as mm2
+  usecase "Go to Figure Moving Page" as mm3
+  usecase "View Lab Materials Page" as mm4
+  
+  
+  
+  usecase "Generate fractal" as gf
+  usecase "View Fractals Help Materials" as vhp1
+  usecase "Save Fractal Image" as si1
+  
+  usecase "Set parameters" as spp1
+  
+  usecase "Select Fractal Type" as sp1
+  usecase "Select Color Scheme" as sp2
+  usecase "Select Scaling" as sp3
+  
+  
+  
+  usecase "Change Color Schemes" as ccs
+  
+  usecase "View Color Schemes Help Materials" as vhp2
+  
+  usecase "Load Image" as licss
+  usecase "Save Image" as sicss
+  usecase "Set parameters" as spp2
+  
+  usecase "Select HSL color options" as cp1
+  usecase "Select CMYK color options" as cp2
+  usecase "Select Additional Options" as cp3
+  usecase "Set Gray Scaling" as cpgscale
+  usecase "Reset Gray Scaling" as cpgscalereset
+  
+  
+  usecase "Run Figure Moving" as rfm1
+  usecase "Stop Figure Moving" as rfm2
+  usecase "Clear Figure Moving" as rfm3
+  
+  usecase "View Figure Moving Materials" as vhp3
+  usecase "Save Figure Image" as si3
+  
+  usecase "Set parameters" as spp3
+  
+  usecase "Set figure coordinates" as fmp1
+  usecase "Set rotate step" as fmp2
+  usecase "Set time step" as fmp3
+  
+}
+
+
+u --> mm1
+u --> mm2
+u --> mm3
+u --> mm4 
+
+mm1 <|-- gf : extends
+mm1 <|-- vhp1 : extends
+
+gf .> spp1 : include
+gf <|-- si1 : extends
+
+spp1 <|-- sp1 : extends
+spp1 <|-- sp2 : extends
+spp1 <|-- sp3 : extends
+
+
+mm2 <|-- ccs : extends
+mm2 <|-- vhp2 : extends
+
+ccs .> licss : include
+ccs <|-- sicss : extends
+ccs .> spp2 : include
+
+spp2 <|-- cp1 : extends
+spp2 <|-- cp2 : extends
+spp2 <|-- cp3 : extends
+
+cp3 <|-- cpgscale : extends
+cp3 <|-- cpgscalereset : extends
+
+
+
+
+mm3 <|-- rfm1 : extends
+mm3 <|-- vhp3 : extends
+
+rfm1<|-- rfm2 : extends
+rfm1<|-- rfm3 : extends
+rfm1<|-- si3 : extends
+
+rfm1 .> spp3 : include
+si3 .> rfm2 : include
+
+spp3 <|-- fmp1 : extends
+spp3 <|-- fmp2 : extends
+spp3 <|-- fmp3 : extends
+
+@enduml

@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
 using Color = System.Windows.Media.Color;
 
 namespace CGv5_App.Frames
@@ -34,7 +29,9 @@ namespace CGv5_App.Frames
 
         private int GetColor(float p)
         {
-            if (p > 1) p = 1;
+            if (p > 1)
+                p = 1;
+
             for (int i = 0; i < _stops.Count; i++)
             {
                 if (_stops[i].v <= p && _stops[i + 1].v >= p)

@@ -101,20 +101,6 @@ namespace CGv5_App.Frames
 
             while (isRunning)
             {
-                await Task.Delay((int)(timeInSecondsStep * 1000));
-
-                var rectangleCenter = GetRectangleCenter(motionRectangle);
-
-                if (motionRectangle == null)
-                    return;
-
-                var motionRectangleMatrix =
-                    (motionRectangle.RenderTransform as MatrixTransform).Matrix;
-                var matrixOperations = motionRectangleMatrix
-                    * CreateRotationMatrixAroundPoint(rotationAngle, rectangleCenter.X, rectangleCenter.Y)
-                    * CreateTranslationMatrixByUpwardDirection(motionRectangle, cellSize * verticalMovingStep);
-                motionRectangle.RenderTransform = new MatrixTransform(matrixOperations);
-
                 if (!IsRectangleInsideCanvas(motionRectangle, drawingCanvas))
                 {
                     var oldLeftPositionMR =
@@ -134,6 +120,21 @@ namespace CGv5_App.Frames
                     Canvas.SetLeft(motionRectangle, (oldLeftPositionMR + numCols / 2) * cellSize);
                     Canvas.SetTop(motionRectangle, (numRows / 2 - oldTopPositionMR) * cellSize);
                 }
+
+                await Task.Delay((int)(timeInSecondsStep * 1000));
+
+                var rectangleCenter = GetRectangleCenter(motionRectangle);
+
+                if (motionRectangle == null)
+                    return;
+
+                var motionRectangleMatrix =
+                    (motionRectangle.RenderTransform as MatrixTransform).Matrix;
+                var matrixOperations = motionRectangleMatrix
+                    * CreateRotationMatrixAroundPoint(rotationAngle, rectangleCenter.X, rectangleCenter.Y)
+                    //* CreateTranslationMatrixByUpwardDirection(motionRectangle, cellSize * verticalMovingStep);
+                    * CreateTranslationMatrix(0, -cellSize * verticalMovingStep);
+                motionRectangle.RenderTransform = new MatrixTransform(matrixOperations);
 
                 DrawRectangleLabels(motionRectangle, drawingCanvas);
             }
@@ -415,7 +416,6 @@ namespace CGv5_App.Frames
 
         private bool IsRectangleInsideCanvas(Rectangle rectangle, Canvas canvas)
         {
-            rectangle.UpdateLayout();
 
             Rect rectangleBounds = new Rect(0, 0, rectangle.ActualWidth, rectangle.ActualHeight);
             Rect transofrmedRectangleBounds = rectangle.RenderTransform.TransformBounds(rectangleBounds);
